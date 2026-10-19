@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('users')->constrained();
-            $table->string('customer_name');
+            $table->foreignId('user_id')->constrained();
+            $table->string('customer_name')->nullable();
             $table->enum('order_channel', ['in_store', 'facebook', 'instagram', 'viber', 'other']);
             $table->enum('order_status', ['completed', 'cancelled'])->default('completed');
             $table->decimal('total');

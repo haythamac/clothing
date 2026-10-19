@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('stock_movements', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_variants')->constrained();
-            $table->foreignId('users')->constrained();
-            $table->foreignId('orders')->constrained();
+            $table->foreignId('product_variant_id')->constrained();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('order_id')->constrained();
             $table->integer('quantity');
             $table->enum('movement_type', ['stock_in', 'sale', 'cancel', 'adjustment', 'return']);
             $table->timestamps();
